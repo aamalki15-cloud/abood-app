@@ -1,0 +1,10 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/children/[id]/route": "/api/children/[id]",
+  "/api/children/route": "/api/children",
+  "/api/progress/route": "/api/progress",
+  "/api/route": "/api",
+  "/api/tts/route": "/api/tts",
+  "/page": "/"
+}
