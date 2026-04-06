@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Child {
+  id          String   @id @default(cuid())
+  name        String
+  gender      String   @default("boy")
+  avatarColor String
+  createdAt   DateTime @default(now())
+
+  letterProgress LetterProgress[]
+  storyProgress  StoryProgress[]
+}
+
+model LetterProgress {
+  id        String   @id @default(cuid())
+  childId   String
+  letter    String
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  child Child @relation(fields: [childId], references: [id], onDelete: Cascade)
+
+  @@unique([childId, letter])
+}
+
+model StoryProgress {
+  id        String   @id @default(cuid())
+  childId   String
+  storyId   String
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  child Child @relation(fields: [childId], references: [id], onDelete: Cascade)
+
+  @@unique([childId, storyId])
+}
