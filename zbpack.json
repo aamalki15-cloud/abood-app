@@ -1,0 +1,15 @@
+# Zeabur Deployment Configuration for عبود (Abood) App
+
+# This file tells Zeabur how to build and run the app
+
+# Build command
+BUILD_COMMAND=bun run build
+
+# Start command  
+START_COMMAND=bun run start
+
+# Install dependencies
+INSTALL_COMMAND=bun install
+
+# Generate Prisma client after install
+POST_INSTALL_COMMAND=bun run db:generate
